@@ -68,8 +68,8 @@ export const getWeather = async (key, city) => {
 };
 
 // 获取教书先生天气 API
-// https://api.oioweb.cn/doc/weather/GetWeather
-export const getOtherWeather = async () => {
-  const res = await fetch("https://api.oioweb.cn/api/weather/GetWeather");
+// https://oiapi.net/api/weather
+export const getOtherWeather = async (city = '北京') => {
+  const res = await fetch(`https://oiapi.net/api/weather?city=${encodeURIComponent(city)}`);
   return await res.json();
 };

@@ -10,7 +10,7 @@
           : weatherData.weather.winddirection + "风"
       }}&nbsp;
     </span>
-    <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
+    <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;</span>
   </div>
   <div class="weather" v-else>
     <span>天气数据获取失败</span>
@@ -56,18 +56,32 @@ const getWeatherData = async () => {
     // 获取地理位置信息
     if (!mainKey) {
       console.log("未配置，使用备用天气接口");
-      const result = await getOtherWeather();
+      // 先获取 IP 地址信息来获取城市
+      const ipInfo = await getAdcode('');
+      const city = ipInfo.city || '长春市';
+      
+      const result = await getOtherWeather(city);
       console.log(result);
-      const data = result.result;
+      
+      // 备用 API 返回 code: 1 表示成功
+      if (result.code !== 1) {
+        throw new Error(result.message || '备用天气接口获取失败');
+      }
+      
+      const data = result.data;
+      if (!data || !data.city) {
+        throw new Error('天气数据格式错误');
+      }
+      
       weatherData.adCode = {
-        city: data.city.City || "未知地区",
-        // adcode: data.city.cityId,
+        city: data.city || city,
+        // adcode: data.cityId,
       };
       weatherData.weather = {
-        weather: data.condition.day_weather,
-        temperature: getTemperature(data.condition.min_degree, data.condition.max_degree),
-        winddirection: data.condition.day_wind_direction,
-        windpower: data.condition.day_wind_power,
+        weather: data.current?.weather || data.weather || '未知',
+        temperature: data.current?.temp || data.temp || 'NaN',
+        winddirection: data.current?.wind || data.wind || '',
+        windpower: data.current?.windSpeed || data.windSpeed || '',
       };
     } else {
       // 获取 Adcode
@@ -82,6 +96,9 @@ const getWeatherData = async () => {
       };
       // 获取天气信息
       const result = await getWeather(mainKey, weatherData.adCode.adcode);
+      if (!result.lives || result.lives.length === 0) {
+        throw new Error('天气数据为空');
+      }
       weatherData.weather = {
         weather: result.lives[0].weather,
         temperature: result.lives[0].temperature,
