@@ -1,0 +1,21 @@
+---
+layout: shared/base.njk
+---
+<div class="main-div">
+    <div class="avatar-area-div">
+        <img src="https://avatars.githubusercontent.com/u/172878250?v=4"
+             srcset="https://avatars.githubusercontent.com/u/172878250?v=4 1x, https://avatars.githubusercontent.com/u/172878250?v=4 2x"
+             alt="Avatar"
+             class="ava-img-round"
+             width="240"
+             height="240"
+             loading="lazy">
+        <h1 class="ava-name"><span class="gradient-text">YeizelNylo</span> <span class="subtext">夜瑗</span></h1>
+    </div>
+
+    <div class="info-text">
+        {{ content | safe }}
+    </div>
+
+    {% include "shared/footer.njk" %}
+</div>

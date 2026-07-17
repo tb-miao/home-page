@@ -1,0 +1,242 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #fef6ff 0%, #f5f0ff 50%, #fff5f8 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 133, 179, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(199, 125, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(125, 211, 252, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+.main-div{
+    padding-bottom:50px;
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    right: 8%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(199, 125, 255, 0.15);
+    padding: 2rem;
+}
+.ava-div {
+    display: flex;
+    flex-direction: column;
+}
+.myname-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.myname-text .gradient-text{
+    background-image: linear-gradient(135deg, #ff85b3 0%, #c77dff 50%, #7dd3fc 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(199, 125, 255, 0.3));
+}
+
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+.ava-img-round {
+    border-radius: 50%;
+    margin-block: 0;
+    border: 3px solid #d4a5f5;
+    box-shadow: 0 0 20px rgba(212, 165, 245, 0.6), 0 0 40px rgba(199, 125, 255, 0.3);
+    animation: breathing-glow 3s infinite ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ava-img-round:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 30px rgba(212, 165, 245, 0.8), 0 0 60px rgba(199, 125, 255, 0.4);
+}
+
+@keyframes breathing-glow {
+    0%, 100% {
+        box-shadow: 0 0 14px rgba(212, 165, 245, 0.6), 0 0 28px rgba(199, 125, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 24px rgba(212, 165, 245, 0.8), 0 0 48px rgba(199, 125, 255, 0.3);
+    }
+}
+.info-div a{
+    color: #b88ce8;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.info-div a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff85b3, #c77dff);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.info-div a:hover {
+    color: #d4a5f5;
+}
+
+.info-div a:hover::after {
+    width: 100%;
+}
+
+.info-div a:active {
+    color: #9b6dd7;
+}
+.info-div ul li {
+    margin-top: 0.8em; /* 调整这个值来改变空行的大小 */
+}
+.info-div ul{
+    padding-left: 1em; /* 调整这个值来改变列表项的缩进 */
+}
+
+
+.footer-div {
+    text-align: start;
+    margin-top: 2rem;
+    margin-left: 1.9rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+.footer-div a{
+    color: #6c757d;
+    text-decoration: none;
+}
+.footer-div p{
+    margin-block: 0.5em;
+}
+
+
+/* 添加深色模式样式 - 二次元暗色风格 */
+@media (prefers-color-scheme: dark) {
+    body{
+        background: linear-gradient(135deg, #1a1525 0%, #1f1530 50%, #1a1828 100%);
+        background-attachment: fixed;
+        color: #e8e0f5;
+    }
+    
+    body::before {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255, 133, 179, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(199, 125, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(125, 211, 252, 0.04) 0%, transparent 50%);
+    }
+    
+    .main-div {
+        background: rgba(35, 25, 55, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(199, 125, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(199, 125, 255, 0.2);
+    }
+    
+    .ava-img-round {
+        border-color: #c77dff;
+        box-shadow: 0 0 20px rgba(199, 125, 255, 0.5), 0 0 40px rgba(199, 125, 255, 0.3);
+    }
+    
+    .info-div a {
+        color: #d4a5f5;
+    }
+    
+    .info-div a::after {
+        background: linear-gradient(90deg, #ff85b3, #c77dff);
+    }
+    
+    .info-div a:hover {
+        color: #e8c5ff;
+    }
+    
+    .info-div a:active {
+        color: #c77dff;
+    }
+    
+    .footer-div {
+        color: #8078a0;
+    }
+    
+    .footer-div a {
+        color: #8078a0;
+    }
+}
+
+/* 添加小设备样式 */
+@media (max-width: 400px) {
+    .main-div {
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 82vw;
+    }
+    .myname-text {
+        font-size: 2.9rem;
+        margin-top: 0.8rem;
+    }
+    .ava-div {
+        align-items: center;
+    }
+    .info-div {
+        margin-left: 1.6rem;
+        margin-top: 2rem;
+        align-self: center;
+        font-size: 1rem;
+    }
+}
+
+/* 添加大设备样式 */
+@media (max-width: 600px) {
+    .myname-text {
+        margin-top: 0.8rem;
+    }
+}
+@media (min-width: 600px) {
+    .ava-div{
+        flex-direction: row;
+        align-items: center;
+        .myname-text {
+            margin-left: 1.6vw;
+        }
+    }
+    .info-div {
+        margin-left: 2vw;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('zh-hans') }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ description }}">
+{% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+<meta name="author" content="Coldin04">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#fafafa">
+<meta name="application-name" content="YeizelNylo（夜瑗）的主页">
+{% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+{% if homePage %}
+<meta property="og:site_name" content="YeizelNylo（夜瑗）的主页">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YeizelNylo（夜瑗）的主页">
+<meta property="og:description" content="YeizelNylo（夜瑗）的个人主页。">
+<meta property="og:url" content="https://nachceko.qzz.io/">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/172878250?v=4">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YeizelNylo（夜瑗）的主页">
+<meta property="og:locale" content="zh_CN">
+<meta name="baidu-site-verification" content="codeva-r9V5E5cvfQ">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YeizelNylo（夜瑗）的主页">
+<meta name="twitter:description" content="YeizelNylo（夜瑗）的个人主页">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/172878250?v=4">
+<meta name="twitter:image:alt" content="YeizelNylo（夜瑗）的主页">
+{% endif %}
+<title>{{ title }}</title>
+<link rel="icon" type="image/svg+xml" href="https://avatars.githubusercontent.com/u/172878250?v=4">
+<link rel="shortcut icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/172878250?v=4">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+{{ content | safe }}
+</body>
+</html>
