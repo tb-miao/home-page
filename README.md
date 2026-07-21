@@ -44,3 +44,5 @@
    ```
    生成的内容将存放在 `dist/` 目录中。
 ---
+
+![](https://avatars.githubusercontent.com/u/172878250?v=4)

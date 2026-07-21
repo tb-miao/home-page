@@ -15,3 +15,7 @@ canonical: https://nachceko.qzz.io
 {% iconLink "fa-solid fa-link", "Nachceko小窝", "https://blog.nachceko.qzz.io", "icon-only-link" %}
 {% iconLink "fa-solid fa-link", "YDC文档", "https://docs.nachceko.qzz.io", "icon-only-link" %}
 {% endlistRow %}
+
+{% projectGrid %}
+{% projectCard "Firefly-blog", "基于 Astro 构建的博客呀~", "https://github.com/tb-miao/Firefly-blog", 0, "Astro" %}
+{% endprojectGrid %}

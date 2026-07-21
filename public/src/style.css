@@ -431,14 +431,14 @@ a.friend-card-link:active {
 .list-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* 缩小行间距 */
-    margin-bottom: 1.2rem;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
 }
 
 .list-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.2rem; /* 缩小项间距 */
+    gap: 0.8rem;
     align-items: center;
 }
 
@@ -446,22 +446,46 @@ a.friend-card-link:active {
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* 专门处理 Cyime 后紧跟的 GitHub 图标 */
+.list-row a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background: var(--card-hover-bg-color);
+}
+
+.list-row a::after {
+    display: none;
+}
+
 .list-row a.icon-only-link {
-    margin-left: -0.8rem; /* 负边距让图标更靠近名称 */
+    margin-left: -0.5rem;
+    padding: 0.5rem;
 }
 
 .list-row a i {
     width: 1.1rem;
     text-align: center;
-    margin-right: 0.3rem;
+    margin-right: 0.4rem;
+    color: var(--accent-purple);
+    transition: color 0.2s ease;
 }
 
-/* 针对 icon-only-link 移除多余边距 */
+.list-row a:hover i {
+    color: var(--accent-pink);
+}
+
 .list-row a.icon-only-link i {
     margin-right: 0;
+    width: 1.2rem;
 }
 
 .hero-tagline {
@@ -540,6 +564,117 @@ ul {
 }
 .footer-div p {
     margin-block: 0.5em;
+}
+
+.projects-section {
+    width: min(100%, var(--profile-content-width));
+    margin: 2rem auto;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+.projects-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.projects-title i {
+    margin-right: 0.5rem;
+    color: var(--accent-purple);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    position: relative;
+    background: var(--card-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    background: var(--card-hover-bg-color);
+}
+
+.project-card-link {
+    display: block;
+    padding: 1.2rem;
+    color: var(--text-color);
+}
+
+.project-card-link:hover {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.project-card-link::after {
+    display: none;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.project-stars {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted-color);
+    background: var(--button-bg-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+}
+
+.project-stars i {
+    margin-right: 0.25rem;
+    color: #ffd700;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted-color);
+    margin: 0 0 0.8rem 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.project-language {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--link-color);
+    background: rgba(184, 140, 232, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
 }
 
 @media (max-width: 480px) {
